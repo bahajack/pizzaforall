@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_231912) do
+ActiveRecord::Schema.define(version: 2021_07_07_015454) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,24 @@ ActiveRecord::Schema.define(version: 2021_07_03_231912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "phone"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "pizza"
+    t.string "wings"
+    t.string "sides"
+    t.string "drinks"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_menus_on_order_id"
+  end
+
+  create_table "menus_orders", id: false, force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "menu_id", null: false
+    t.index ["menu_id", "order_id"], name: "index_menus_orders_on_menu_id_and_order_id"
+    t.index ["order_id", "menu_id"], name: "index_menus_orders_on_order_id_and_menu_id"
   end
 
   create_table "orders", force: :cascade do |t|
