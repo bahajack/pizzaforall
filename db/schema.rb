@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_015454) do
+ActiveRecord::Schema.define(version: 2021_07_10_220729) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.text "address"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone"
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string "pizza"
-    t.string "wings"
-    t.string "sides"
-    t.string "drinks"
+    t.string "menu_name"
+    t.string "menu_type"
+    t.string "size"
+    t.decimal "price"
     t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,6 +46,25 @@ ActiveRecord::Schema.define(version: 2021_07_07_015454) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "store_name"
+    t.string "store_address"
+    t.string "order_type"
+    t.integer "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_stores_on_menu_id"
+  end
+
+  create_table "toppings", force: :cascade do |t|
+    t.string "topping_name"
+    t.decimal "topping_price"
+    t.integer "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_toppings_on_menu_id"
   end
 
 end

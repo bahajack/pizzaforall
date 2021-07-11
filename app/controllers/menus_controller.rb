@@ -54,8 +54,8 @@ class MenusController < ApplicationController
 
   #def destroy
 
-      #@order.destroy
-    #  redirect_to orders_path
+  #    @menu.destroy
+  #    redirect_to menus_path
   #end
 
   def destroy
@@ -69,7 +69,7 @@ class MenusController < ApplicationController
   private
 
     def menu_params
-      params.require(:menu).permit(:pizza, :wings, :sides, :drinks, :customer_id, :slug)
+      params.require(:menu).permit(:menu_name, :menu_type, :size, :price, :customer_id, :slug)
     end
 
     def set_menu

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topping_name: MyString
+  topping_price: 9.99
+  menu: one
+
+two:
+  topping_name: MyString
+  topping_price: 9.99
+  menu: two
