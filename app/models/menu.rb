@@ -8,4 +8,6 @@ class Menu < ApplicationRecord
   validates :size,  presence: true
   validates :price, presence: true
   validates :price, numericality: { only_decimal: true }
+
+  #validates_associated :order
 end

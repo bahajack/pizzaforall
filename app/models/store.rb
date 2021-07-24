@@ -4,4 +4,6 @@ class Store < ApplicationRecord
   validates :store_name, presence: true
   validates :order_type,  presence: true
   validates :store_address, presence: true
+
+  #validates_associated :menu
 end

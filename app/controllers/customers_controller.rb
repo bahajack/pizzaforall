@@ -26,6 +26,7 @@ class CustomersController < ApplicationController
     #   @customer.save
     #   redirect_to @customer
      end
+   
 
     def edit
 
