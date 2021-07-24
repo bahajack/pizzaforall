@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Menus</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th>Menu Name</th>
+      <th>Menu Type</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+
+        <td><%= menu.menu_name %></td>
+        <td><%= menu.menu_type %></td>
+        <td><%= menu.size %></td>
+        <td><%= menu.price %></td>
+        <td><%= link_to 'Show', menu %></td>
+        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu', new_menu_path, :class => "btn btn-primary btn-sm"%> <%= link_to 'Choose your store', new_store_path, :class => "btn btn-primary btn-sm"%>
+<br>
+<br>
+<p> Add topping! </p>
+<%= link_to 'Topping', new_topping_path, :class => "btn btn-primary btn-sm"%>

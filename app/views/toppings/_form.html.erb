@@ -1,0 +1,33 @@
+<%= form_for(topping) do |f| %>
+  <% if topping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(topping.errors.count, "error") %> prohibited this topping from being saved:</h2>
+
+      <ul>
+      <% topping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= f.label :menu_name %>
+  <%= f.collection_select :menu_id, Menu.all, :id, :menu_name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :topping_name %>
+    <%= f.text_field :topping_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :topping_price %>
+    <%= f.text_field :topping_price %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
